@@ -1,19 +1,8 @@
 # https://leetcode.com/problems/majority-element
 
+from collections import Counter
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        dict_count = {}
-        num = 0
-        for each in nums:
-            if each in dict_count.keys():
-                dict_count[each]+=1
-                if dict_count[each]> len(nums)/2:
-                    num = each
-                    break
-
-            else:
-                dict_count[each]=1
-                if dict_count[each]> len(nums)/2:
-                    num = each
-                    break
-        return num
+        dict_count = Counter(nums)
+        if (dict_count.most_common()[0][1])>len(nums)/2:
+            return dict_count.most_common()[0][0]
