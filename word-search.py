@@ -45,6 +45,7 @@ class Solution:
         
         for i in range(len(board)):
             for j in range(len(board[0])):
-                if self.ans == False and self.word[0] == board[i][j] and self.visited[i][j] == False:                        
+                if self.ans == False and self.word[0] == board[i][j] and self.visited[i][j] == False:
+                    self.dfs(i,j,0)                        
         return self.ans
         
